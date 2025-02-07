@@ -4,8 +4,9 @@ import time
 from config import *
 
 class AI:
-	def __init__(self, ball):
+	def __init__(self, ball, paddle):
 		self.ball = ball
+		self.paddle = paddle
 		self.sees_ball = False
 		self.direction = 0
 		self.ball_seen_time = 0
@@ -14,17 +15,33 @@ class AI:
 	def start(self):
 		threading.Thread(target=self.observe_game, daemon=True).start()
 
+	def traj_calc(self):
+			x_dist = SCREEN_WIDTH - self.ball.rect.right - PADDLE_WIDTH
+			estimated_coll_time = x_dist / self.ball.vel_x
+			lazy_coll_y = self.ball.rect.centery + self.ball.vel_y * estimated_coll_time 
+			n_coll , residue =  lazy_coll_y // SCREEN_HEIGHT, lazy_coll_y % SCREEN_HEIGHT
+			if lazy_coll_y * (2 * (n_coll % 2 != 0) - 1) < 0:
+				residue = SCREEN_HEIGHT - residue  
+			if residue < self.paddle.rect.centery:
+				self.direction  = -1
+			elif residue > self.paddle.rect.centery:
+				self.direction = +1
+			needed_time = abs(residue - self.paddle.rect.centery) / (PADDLE_SPEED * FPS)
+			self.sleep_time = min(AI_WAIT , needed_time)
+			print(residue)
+			
+
+
 	def observe_game(self):
 		while self.running:
-			time.sleep(1)
-		
-			self.sees_ball = True
-			self.ball_seen_time = time.time()
+			self.direction , self.sleep_time = 0 , AI_WAIT
+			if self.ball.vel_x > 0:
+				self.traj_calc()
+			self.ball.last_seen_time = time.time()	
+			time.sleep(self.sleep_time)
+			self.direction = 0 
+			time.sleep(AI_WAIT - self.sleep_time)
 
-			if self.ball.rect.centery < 300:
-				self.direction  = -1
-			else:
-				self.direction = 1
 
 	def get_ai_input(self):
 		return self.direction
