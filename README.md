@@ -18,12 +18,12 @@ Ensure you have Python 3.8+ installed.
 ### 1. Install Dependencies
 
 The game requires **pygame** and **numpy**. Install them using:
-```bash
+``` bash
 
 pip3 install pygame numpy
 ```
 ### 2. Clone the Repository
-```bash
+``` bash
 git clone https://github.com/zolfagharipour/Pong_ai
 cd Pong_ai
 ```
@@ -31,7 +31,7 @@ cd Pong_ai
 ## Running the Game
 
 Navigate to the project directory and run:
-```bash
+``` bash
 
 python3 src/main.py
 ```
