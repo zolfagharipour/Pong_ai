@@ -15,27 +15,27 @@ A Python-based **Pong game** where a human player competes against an **AI oppon
 Check if Python is installed:
 ```bash
 python3 --version
-**
+```
 If not, install it using:
 ```bash
 
 sudo apt update
 sudo apt install python3 python3-pip
-**
+```
 2. Install Dependencies
 
 The game requires **pygame** and **numpy**. Install them using:
 ```bash
 
 pip3 install pygame numpy
-**
+```
 ## Running the Game ▶️
 
 Navigate to the project directory and run:
 ```bash
 
 python3 src/main.py
-**
+```
 ## How the AI Works 🧠
 
 - The AI **only "sees" the game state every 1 second**.
@@ -45,14 +45,11 @@ python3 src/main.py
 
 ## Game Controls 🎮
 
-| Attempt | #1    | #2    |
-| :---:   | :---: | :---: |
-| Seconds | 301   | 283   |
+| Action | Player 1 |
+| Move Up   | ARROW KEY UP ↑ |
+| Move Down | ARROW KEY DOWN ↓ |
+| Quit Game | Esc or Close Window   |
 
-Action	Player 1 (Human)
-Move Up	W
-Move Down	S
-Quit Game	Esc or Close Window
 
 The AI controls Player 2 automatically.
 ## Modifying Game Settings ⚙️
