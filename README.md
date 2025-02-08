@@ -14,14 +14,14 @@ A Python-based **Pong game** where a human player competes against an **AI oppon
 
 Ensure you have Python 3.8+ installed.
 
-**1. Install Dependencies**
+### 1. Install Dependencies
 
 The game requires **pygame** and **numpy**. Install them using:
 ```bash
 
 pip3 install pygame numpy
 ```
-**2. Clone the Repository**
+###2. Clone the Repository
 ```bash
 git clone https://github.com/zolfagharipour/Pong_ai
 cd Pong_ai
