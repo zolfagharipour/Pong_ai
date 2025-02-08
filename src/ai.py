@@ -1,6 +1,8 @@
 import pygame
 import threading
 import time
+import math
+import numpy
 from config import *
 
 class AI:
@@ -11,24 +13,25 @@ class AI:
 		self.direction = 0
 		self.ball_seen_time = 0
 		self.running = True
+		# print( -1 * True, -1 * False)
 
 	def start(self):
 		threading.Thread(target=self.observe_game, daemon=True).start()
 
 	def traj_calc(self):
 			x_dist = SCREEN_WIDTH - self.ball.rect.right - PADDLE_WIDTH
-			estimated_coll_time = x_dist / self.ball.vel_x
-			lazy_coll_y = self.ball.rect.centery + self.ball.vel_y * estimated_coll_time 
+			estimated_coll_time = x_dist / int(self.ball.vel_x)
+			lazy_coll_y = self.ball.rect.centery + int(self.ball.vel_y) * estimated_coll_time 
 			n_coll , residue =  lazy_coll_y // SCREEN_HEIGHT, lazy_coll_y % SCREEN_HEIGHT
-			if lazy_coll_y * (2 * (n_coll % 2 != 0) - 1) < 0:
-				residue = SCREEN_HEIGHT - residue  
+
+			if n_coll % 2 != 0:
+				residue = SCREEN_HEIGHT - residue
 			if residue < self.paddle.rect.centery:
 				self.direction  = -1
 			elif residue > self.paddle.rect.centery:
 				self.direction = +1
 			needed_time = abs(residue - self.paddle.rect.centery) / (PADDLE_SPEED * FPS)
 			self.sleep_time = min(AI_WAIT , needed_time)
-			print(residue)
 			
 
 

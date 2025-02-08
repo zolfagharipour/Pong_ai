@@ -26,7 +26,7 @@ class Ball:
 	def move(self):
 		self.rect.x += self.vel_x
 		self.rect.y += self.vel_y
-		if self.rect.top <= 0 or self.rect.bottom >= SCREEN_HEIGHT:
+		if self.rect.centery <= 0 or self.rect.centery >= SCREEN_HEIGHT:
 			self.vel_y *= -1
 
 	def draw(self, window):
