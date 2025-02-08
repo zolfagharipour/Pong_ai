@@ -43,6 +43,7 @@ class PongGame:
 		pygame.display.set_caption("PONG AI")
 
 		self.paddle1 = Paddle(0, SCREEN_HEIGHT // 2 - PADDLE_HEIGHT // 2 , True)
+		# self.paddle1 = Paddle(0, SCREEN_HEIGHT // 2 - PADDLE_HEIGHT // 2 ,False)
 		self.paddle2 = Paddle(SCREEN_WIDTH - PADDLE_WIDTH, SCREEN_HEIGHT // 2 - PADDLE_HEIGHT // 2 ,False)
 		self.ball = Ball(SCREEN_HEIGHT // 2, PADDLE_HEIGHT // 2)
 
