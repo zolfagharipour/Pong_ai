@@ -10,26 +10,24 @@ Every time the AI **sees the ball**, the ball turns **red** for 0.5 seconds, ind
 - **AI Vision Limitation** – The AI can only "see" the game state every 1 second, adding a unique challenge.
 - **Threaded AI Control** – The AI runs in a separate thread, and instead of moving directly, it simulates key presses (``UP`` or ``DOWN``) just like a human.
 - **Configurable Settings** – Modify AI behavior, physics, and game parameters in config.py.
-## Installation
-**1. Install Python (If not installed)**
+## Installation & Setup
+### Prerequisites
 
-Check if Python is installed:
-```bash
-python3 --version
-```
-If not, install it using:
-```bash
+Ensure you have Python 3.8+ installed.
 
-sudo apt update
-sudo apt install python3 python3-pip
-```
-**2. Install Dependencies**
+### 1. Install Dependencies
 
 The game requires **pygame** and **numpy**. Install them using:
 ```bash
 
 pip3 install pygame numpy
 ```
+### 2. Clone the Repository
+```bash
+git clone https://github.com/zolfagharipour/Pong_ai
+cd Pong_ai
+```
+
 ## Running the Game
 
 Navigate to the project directory and run:
