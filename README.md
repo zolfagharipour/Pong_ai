@@ -21,7 +21,7 @@ The game requires **pygame** and **numpy**. Install them using:
 
 pip3 install pygame numpy
 ```
-###2. Clone the Repository
+### 2. Clone the Repository
 ```bash
 git clone https://github.com/zolfagharipour/Pong_ai
 cd Pong_ai
