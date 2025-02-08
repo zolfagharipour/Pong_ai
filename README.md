@@ -1,13 +1,14 @@
 ### Pong AI Game 🏓🤖
 
-A Python-based **Pong game** where a human player competes against an **AI opponent** that predicts ball trajectory. The AI only sees the game **once per second**, making strategic decisions based on ball physics.
-
+A Python-based **Pong game** where a human player competes against an **AI opponent** that predicts ball trajectory. The AI operates in a **separate thread** and controls the paddle **by simulating key presses**, just like a human player.
+Every time the AI **sees the ball**, the ball turns **red** for 0.5 seconds, indicating the AI's vision event.
 ## Features 
 
 - **Real-Time Pong Gameplay** – Classic Pong with enhanced physics.
 - **AI Opponent with Ball** Trajectory Prediction – The AI calculates where the ball will land and moves accordingly.
 - **Dynamic Ball Speed** – The ball's speed increases based on where it hits the paddle, making the game more unpredictable.
 - **AI Vision Limitation** – The AI can only "see" the game state every 1 second, adding a unique challenge.
+- **Threaded AI Control** – The AI runs in a separate thread, and instead of moving directly, it simulates key presses (``UP`` or ``DOWN``) just like a human.
 - **Configurable Settings** – Modify AI behavior, physics, and game parameters in config.py.
 ## Installation
 **1. Install Python (If not installed)**
